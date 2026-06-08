@@ -189,3 +189,9 @@ Tahap A
    git add .
    git commit -m "add github actions workflow"
    git push origin main
+
+   npm install untuk membaca package.json dan memperbarui package-lock.json dan menyinkronkan dependency
+
+   git status untuk melihat status perubahan kode misal -> modified: package-lock.json
+
+   git add package-lock.json
