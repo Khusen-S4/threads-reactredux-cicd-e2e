@@ -1,0 +1,59 @@
+.detail-thread-footer {
+  margin-top: 16px;
+}
+
+.detail-thread-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 12px;
+}
+
+.detail-thread-actions button {
+  border: none;
+  background-color: #673169;
+
+  padding: 6px 12px;
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.detail-thread-actions button:hover {
+  background-color: #746c257e;
+}
+
+.detail-thread-comments {
+  font-size: 14px;
+  color: #555;
+}
+
+.detail-thread-date {
+  display: block;
+  margin-bottom: 12px;
+
+  color: #777;
+}
+
+.detail-thread-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.detail-thread-avatar {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.detail-thread-owner {
+  margin: 0;
+  font-size: 14px;
+  color: #444;
+}

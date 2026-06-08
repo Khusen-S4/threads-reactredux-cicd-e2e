@@ -1,0 +1,42 @@
+.footer-tag {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  gap: 12px;
+
+  background-color: rgb(203, 228, 136);
+  padding: 12px 18px;
+
+  border-radius: 999px;
+
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.06);
+
+  z-index: 999;
+}
+
+.footer-tag button {
+  border: none;
+  padding: 10px 16px;
+
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  background-color: #000000;
+
+  transition: all 0.2s ease;
+}
+
+.footer-tag button:hover {
+  background-color: #16335a;
+  transform: translateY(-2px);
+}
+
+.footer-tag a {
+  text-decoration: none;
+}
