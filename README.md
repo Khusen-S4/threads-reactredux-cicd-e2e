@@ -161,3 +161,16 @@ Bukti:
 
 Tahap D 
    Melampirkan URL Vercel aplikasi Anda pada catatan submission
+
+
+Pengerjaan Tahap Kriteria 2
+Tahap A 
+   Masuk ke GitHub dan buat repository baru :
+      Nama yang saya sarankan:
+         threads-reactredux-cicd-e2e
+      Pengaturan:
+         Public
+   git add .
+   git commit -m "initial commit"
+   git remote add origin https://github.com/Khusen-S4/threads-reactredux-cicd-e2e.git
+   git push -u origin main
