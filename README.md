@@ -174,3 +174,18 @@ Tahap A
    git commit -m "initial commit"
    git remote add origin https://github.com/Khusen-S4/threads-reactredux-cicd-e2e.git
    git push -u origin main
+
+   git remote -v
+   git log --oneline -1
+
+   Setelah push berhasil
+      Baru kita masuk ke bagian yang benar-benar memenuhi kriteria deployment:
+      Continuous Integration
+      Membuat:
+         .github/
+         └── workflows/
+            └── ci.yml dan mengisi kode CI disini
+   
+   git add .
+   git commit -m "add github actions workflow"
+   git push origin main
