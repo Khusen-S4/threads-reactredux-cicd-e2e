@@ -229,3 +229,5 @@ Tidak ada yang disimpan dari workflow sebelumnya
 
 Persiapan CI CD :
 Login vercel 
+
+## Branch Protection Test
