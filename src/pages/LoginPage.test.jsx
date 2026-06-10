@@ -30,9 +30,7 @@ describe('LoginPage component', () => {
       screen.getByPlaceholderText('Email')
     ).toBeInTheDocument()
 
-    expect(
-      screen.getByPlaceholderText('Password')
-    ).toBeInTheDocument()
+    expect(true).toBe(false)
   })
 
   it('harus memperbarui nilai input email ketika pengguna mengetik', async () => {
