@@ -230,4 +230,8 @@ Tidak ada yang disimpan dari workflow sebelumnya
 Persiapan CI CD :
 Login vercel 
 
+contoh membuat branch baru : git checkout -b test-branch-protection
+
 ## Branch Protection Test
+di github ada istilah :
+ - Required approvals = 1 "artinya setiap perubahan harus ada 1 orang lainnya yang menyetujui perubahan itu"
