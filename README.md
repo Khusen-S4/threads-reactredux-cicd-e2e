@@ -195,3 +195,34 @@ Tahap A
    git status untuk melihat status perubahan kode misal -> modified: package-lock.json
 
    git add package-lock.json
+
+
+Apa yang Terjadi di GitHub?
+Bayangkan GitHub menyewa komputer Linux sementara untuk project Anda.
+
+Kode ini:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+artinya:
+Buat mesin virtual Ubuntu terbaru
+Lalu jalankan job bernama "test"
+
+Visualnya:
+GitHub
+   ↓
+Membuat Ubuntu VM
+   ↓
+Menjalankan langkah-langkah CI
+   ↓
+Menghapus VM setelah selesai
+
+Jadi setiap push:
+Ubuntu baru
+↓
+Jalankan workflow
+↓
+Hapus Ubuntu
+
+Tidak ada yang disimpan dari workflow sebelumnya
