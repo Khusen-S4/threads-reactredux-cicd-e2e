@@ -4,6 +4,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import { asyncRegisterUser } from '../states/authUser/action'
 
 import '../styles/RegisterPage.css'
+import { motion } from 'framer-motion'
+
 function RegisterPage () {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -22,7 +24,12 @@ function RegisterPage () {
 
   return (
     <div className="register-page">
-      <div className="register-card">
+      <motion.div
+        className="register-card"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
 
         <h2>Register</h2>
 
@@ -80,7 +87,7 @@ function RegisterPage () {
           </Link>
         </p>
 
-      </div>
+      </motion.div>
     </div>
   )
 }

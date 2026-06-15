@@ -14,6 +14,7 @@
     "e2e:open": "cypress open"
   },
   "dependencies": {
+    "framer-motion": "^12.40.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "react-hook-form": "^7.79.0",

@@ -238,3 +238,11 @@ di github ada istilah :
 
 React Tools :
 - React Toastify
+   Implementasi React Hook Form untuk Login dan Register ->
+   Implementasi React Toastify untuk notifikasi aplikasi.
+
+- Framer Motion = animasi ringan = npm install framer-motion
+   Animasi muncul pada LoginPage.
+   Animasi muncul pada RegisterPage.
+   Animasi card thread.
+   Animasi perpindahan halaman.

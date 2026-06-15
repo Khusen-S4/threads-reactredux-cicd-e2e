@@ -5,6 +5,8 @@ import { asyncSetAuthUser } from '../states/authUser/action'
 import { Link } from 'react-router-dom'
 import '../styles/LoginPage.css'
 
+import { motion } from 'framer-motion'
+
 function LoginPage () {
   const dispatch = useDispatch()
 
@@ -20,7 +22,12 @@ function LoginPage () {
 
   return (
     <div className="login-page">
-      <div className="login-card">
+      <motion.div 
+        className="login-card"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
 
         <h2>Login</h2>
 
@@ -67,7 +74,7 @@ function LoginPage () {
           </Link>
         </p>
 
-      </div>
+      </motion.div>
     </div>
   )
 }
