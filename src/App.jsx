@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Routes, Route, Navigate } from 'react-router-dom'
 
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
 import HomePage from './pages/HomePage'
@@ -29,29 +32,38 @@ function App () {
 
   if (!authUser) {
     return (
-      <Routes>
-        <Route path="/" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
+      <>
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
 
-        {/* route liar */}
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
+          {/* route liar */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+
+        <ToastContainer />
+      </>
     )
   }
 
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/threads/:id" element={<DetailThreadPage />} />
-      <Route path="/create" element={<CreateThreadPage />} />
-      <Route
-        path="/leaderboards"
-        element={<LeaderboardsPage />}
-      />
+    <>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/threads/:id" element={<DetailThreadPage />} />
+        <Route path="/create" element={<CreateThreadPage />} />
+        <Route
+          path="/leaderboards"
+          element={<LeaderboardsPage />}
+        />
 
-      {/* route liar */}
-      <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
+        {/* route liar */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+
+      <ToastContainer />
+    </>
+    
   )
 }
 export default App

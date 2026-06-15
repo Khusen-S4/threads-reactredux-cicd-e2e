@@ -2,6 +2,8 @@ import { login, putAccessToken, getOwnProfile } from '../../utils/api'
 import { register } from '../../utils/api'
 import { removeAccessToken } from '../../utils/api'
 
+import { toast } from 'react-toastify'
+
 function setAuthUserActionCreator (authUser) {
   return {
     type: 'SET_AUTH_USER',
@@ -18,13 +20,20 @@ function unsetAuthUserActionCreator () {
 // Async Login
 function asyncSetAuthUser ({ email, password }) {
   return async (dispatch) => {
-    const token = await login({ email, password })
+    try {
+      const token = await login({ email, password })
 
-    putAccessToken(token)
+      putAccessToken(token)
 
-    const authUser = await getOwnProfile()
+      const authUser = await getOwnProfile()
 
-    dispatch(setAuthUserActionCreator(authUser))
+      dispatch(setAuthUserActionCreator(authUser))
+
+      toast.success('Login berhasil')
+    } catch (error) {
+      toast.error(error.message)
+      throw error
+    }
   }
 }
 
@@ -33,9 +42,11 @@ function asyncRegisterUser ({ name, email, password }) {
   return async () => {
     try {
       await register({ name, email, password })
-      alert('Register berhasil! Silakan login.')
+
+      toast.success('Register berhasil! Silakan login.')
     } catch (error) {
-      alert(error.message)
+      toast.error(error.message)
+      throw error
     }
   }
 }

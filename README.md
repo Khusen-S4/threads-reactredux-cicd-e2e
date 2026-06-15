@@ -229,3 +229,20 @@ Tidak ada yang disimpan dari workflow sebelumnya
 
 Persiapan CI CD :
 Login vercel 
+
+contoh membuat branch baru : git checkout -b test-branch-protection
+
+## Branch Protection Test
+di github ada istilah :
+ - Required approvals = 1 "artinya setiap perubahan harus ada 1 orang lainnya yang menyetujui perubahan itu"
+
+React Tools :
+- React Toastify
+   Implementasi React Hook Form untuk Login dan Register ->
+   Implementasi React Toastify untuk notifikasi aplikasi.
+
+- Framer Motion = animasi ringan = npm install framer-motion
+   Animasi muncul pada LoginPage.
+   Animasi muncul pada RegisterPage.
+   Animasi card thread.
+   Animasi perpindahan halaman.
