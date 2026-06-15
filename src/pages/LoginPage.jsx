@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { asyncSetAuthUser } from '../states/authUser/action'
 
@@ -8,13 +8,14 @@ import '../styles/LoginPage.css'
 function LoginPage () {
   const dispatch = useDispatch()
 
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
 
-  function onSubmit (e) {
-    e.preventDefault()
-
-    dispatch(asyncSetAuthUser({ email, password }))
+  function onSubmit (data) {
+    dispatch(asyncSetAuthUser(data))
   }
 
   return (
@@ -24,22 +25,34 @@ function LoginPage () {
         <h2>Login</h2>
 
         <form
-          onSubmit={onSubmit}
+          onSubmit={handleSubmit(onSubmit)}
           className="login-form"
         >
           <input
             type="email"
             placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            {...register('email', {
+              required: 'Email wajib diisi',
+            })}
           />
+          {errors.email && (
+            <p>{errors.email.message}</p>
+          )}
 
           <input
             type="password"
             placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            {...register('password', {
+              required: 'Password wajib diisi',
+              minLength: {
+                value: 6,
+                message: 'Password minimal 6 karakter',
+              },
+            })}
           />
+          {errors.password && (
+            <p>{errors.password.message}</p>
+          )}
 
           <button type="submit">
             Login

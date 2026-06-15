@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { asyncRegisterUser } from '../states/authUser/action'
@@ -8,16 +8,15 @@ function RegisterPage () {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
 
-  async function onSubmit (e) {
-    e.preventDefault()
+  async function onSubmit (data) {
+    await dispatch(asyncRegisterUser(data))
 
-    await dispatch(asyncRegisterUser({ name, email, password }))
-
-    // setelah sukses → ke login
     navigate('/')
   }
 
@@ -28,29 +27,45 @@ function RegisterPage () {
         <h2>Register</h2>
 
         <form
-          onSubmit={onSubmit}
+          onSubmit={handleSubmit(onSubmit)}
           className="register-form"
         >
           <input
             type="text"
             placeholder="Nama"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            {...register('name', {
+              required: 'Nama wajib diisi',
+            })}
           />
+          {errors.name && (
+            <p>{errors.name.message}</p>
+          )}
 
           <input
             type="email"
             placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            {...register('email', {
+              required: 'Email wajib diisi',
+            })}
           />
+          {errors.email && (
+            <p>{errors.email.message}</p>
+          )}
 
           <input
             type="password"
             placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            {...register('password', {
+              required: 'Password wajib diisi',
+              minLength: {
+                value: 6,
+                message: 'Password minimal 6 karakter',
+              },
+            })}
           />
+          {errors.password && (
+            <p>{errors.password.message}</p>
+          )}
 
           <button type="submit">
             Register
